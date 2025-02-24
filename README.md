@@ -1,91 +1,105 @@
-# AI/Machine Learning Intern Challenge: Simple Content-Based Recommendation
+# Movie Recommendation System
 
-**Deadline**: Sunday, Feb 23th 11:59 pm PST
+This project is a content-based recommendation system that suggests movies based on a user's input query.
 
----
+## Dataset
 
-## Overview
+- The dataset contains movie descriptions.
+- It is stored as a CSV file (`your_dataset.csv`).
+- It is automatically loaded when running the script.
 
-Build a **content-based recommendation system** that, given a **short text description** of a user’s preferences, suggests **similar items** (e.g., movies) from a small dataset. This challenge should take about **3 hours**, so keep your solution **simple** yet **functional**.
+## Setup
 
-### Example Use Case
+### 1. Clone the Repository
 
-- The user inputs:  
-  *"I love thrilling action movies set in space, with a comedic twist."*  
-- Your system processes this description (query) and compares it to a dataset of items (e.g., movies with their plot summaries or keywords).  
-- You then return the **top 3–5 “closest” matches** to the user.
+```bash
+git clone https://github.com/vivek-krishnagiri/lumaa-spring-2025-ai-ml.git
+cd lumaa-spring-2025-ai-ml
+```
 
----
+### 2. Create and Activate a Virtual Environment
 
-## Requirements
+#### macOS/Linux
 
-1. **Dataset**  
-   - Use a **small** public dataset of items (e.g., a list of movies with plot summaries, or other textual descriptions).  
-   - Make sure the dataset is easy to handle (maybe 100–500 rows) so the solution remains quick to implement and run.  
-   - Include the dataset in your forked repository *or* provide instructions/link on how to download it.  
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
 
-2. **Approach**  
-   - **Content-Based**: At a minimum, use text similarity to recommend items.  
-     - For instance, you can transform both the user’s text input and each item’s description into TF-IDF vectors and compute **cosine similarity**.  
-   - Return the **top N** similar items (e.g., top 5).
+#### Windows (CMD)
 
-3. **Code Organization**  
-   - You may use a **Jupyter Notebook** or **Python scripts**.  
-   - Keep it **readable** and **modular** (e.g., one section for loading data, one for building vectors, one for computing similarity, etc.).  
-   - Briefly comment or docstring your key functions/sections.
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
 
-4. **Output**  
-   - When given an input description (e.g., `"I like action movies set in space"`), your system should print or return a list of recommended items (e.g., 3–5 titles).  
-   - Include the similarity score or rank if you’d like.
+#### Windows (PowerShell)
 
-5. **Summary & Instructions**  
-   - A short `README.md` that includes:
-     - **Dataset**: Where it’s from, any steps to load it.  
-     - **Setup**: Python version, virtual environment instructions, and how to install dependencies (`pip install -r requirements.txt`).  
-     - **Running**: How to run your code (e.g., `python recommend.py "Some user description"` or open your notebook in Jupyter).  
-     - **Results**: A brief example of your system’s output for a sample query.
+```powershell
+python -m venv venv
+venv\Scripts\Activate.ps1
+```
 
----
+### 3. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+## Running the Recommendation System
+
+Run the following command with a search query to get relevant movie recommendations:
+
+```bash
+python recommend.py "sci-fi movies with space battles"
+```
+
+### Example Queries
+
+```bash
+python recommend.py "romantic movies with tragic endings"
+python recommend.py "animated movies about talking animals"
+python recommend.py "mystery movies with mind-blowing twists"
+python recommend.py "action movies with intense fight scenes"
+```
+
+## Example Output
+
+For the query **"sci-fi movies with space battles"**, the output may look like:
+
+```
+1. Guardians of the Galaxy - A group of misfits fights in space to save the universe.
+2. Interstellar - A team of explorers travel through a wormhole to find a new home for humanity.
+3. Star Wars - A young Jedi learns the ways of the Force and battles the dark side.
+4. The Matrix - A hacker discovers reality is a simulation and fights back.
+5. Gravity - A medical engineer and an astronaut work together to survive in space.
+```
 
 ## Deliverables
 
-1. **Fork the Public Repository**  
-   - **Fork** this repo into your own GitHub account.
+### 1. **Fork the Repository**
 
-2. **Implement Your Solution**  
-   - Load and preprocess your dataset (e.g., read CSV, handle text columns).  
-   - Convert text data to vectors (e.g., TF-IDF).  
-   - Implement a function to compute similarity between the user’s query and each item’s description.  
-   - Return the top matches.
-   - Salary expectation per month (Mandatory)
+- Fork this repo into your own GitHub account.
+- Make all modifications within your fork.
 
-3. **Short Video Demo**  
-   - In a `.md` file (e.g., `demo.md`) within your fork, paste a link to a **brief screen recording** (video link).  
-   - Demonstrate:
-     - How you run the recommendation code.  
-     - A sample query and the results.
+### 2. **Short Video Demo**
 
-4. **Deadline**  
-   - Submit your fork by **Sunday, Feb 23th 11:59 pm PST**.
+- Record a short screen recording demonstrating:
+  - How to run the recommendation code.
+  - A sample query and its results.
+- Save the video link inside `demo.md` in your repository.
 
-> **Note**: This should be doable within ~3 hours. Keep it **straightforward**—you do **not** need advanced neural networks or complex pipelines. A simple TF-IDF + cosine similarity approach is sufficient.
+### 3. **Submit Your Fork**
+
+- Ensure your fork is **up to date** before submitting.
+- If no submission method is mentioned, **open a Pull Request** on the original repository or contact the organizers.
+
+## Notes
+
+- If the recommendation results seem irrelevant, adjust the similarity calculation in `recommend.py`.
+- Try using different search terms to test the system's accuracy.
 
 ---
 
-## Evaluation Criteria
+Now, you're ready to run and submit your recommendation system! 🚀
 
-1. **Functionality**  
-   - Does your code run without errors?  
-   - When given an input query, does it successfully output relevant items?
-
-2. **Code Quality**  
-   - Clear, commented code (where it counts).  
-   - Logical steps (load data → transform → recommend).
-
-3. **Clarity**  
-   - Is your `README.md` straightforward about setup, how to run, and what to expect?
-
-4. **ML/Recommendation Understanding**  
-   - Basic implementation of a content-based recommendation approach (vectorization, similarity measure).
-
-**We look forward to seeing your solution!** Good luck!
